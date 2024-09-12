@@ -1,0 +1,105 @@
+.heading{
+    user-select: none;
+    position: fixed;
+    text-align: center;
+    color: white;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+.heading span{
+    font-size: 50px;
+}
+
+.heading p{
+    color: rgb(212, 212, 212);
+}
+
+.heading h1{
+    margin: 20px;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 12px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    min-width: 200px;
+    box-shadow: 10px 10px 300px 30px rgb(157, 175, 255);
+
+}
+
+@media screen and (max-width:650px) {
+    .heading h1{
+    box-shadow: 10px 10px 300px 30px rgba(157, 175, 255, 0.212);
+        
+    }
+}
+
+.heading button:hover{
+    gap: 10px;
+    transition: 0.4s;
+
+}
+.close{
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    top: 90%;
+    left: 50%;
+    color: white;
+    transform: translate(-50% , -50%);
+}
+
+/* SelectLang.js>>styling */
+.selWrapper{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    color: white;
+}
+
+.jslogo{
+    box-shadow: 1px 1px 100px 1px rgba(169, 179, 24, 0.562);
+    border-radius: 22px;
+}
+
+.languages img{
+    cursor: pointer;
+    height: 70px;
+    width: auto;
+}
+
+.main{
+    color: black;
+    margin-top: 50px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    height: 240px;
+    border-radius: 12px;
+}
+.des{
+    margin-top: 10px;
+    color: antiquewhite;
+}
+.main button{
+background-color: black;
+color: white;
+padding: 8px;
+width: 150px;
+margin: 15px;
+border-radius: 12px;
+}

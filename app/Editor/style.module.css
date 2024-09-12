@@ -1,0 +1,314 @@
+.wrapper {
+    background-color: #ffffff5d;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    background-color: #32325a;
+    height: 100%;
+    /* border-radius: 8px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.nav, .Bav {
+    background-color: #1f2133;
+    min-height: 50px;
+    border-radius: 8px 8px 0px 0px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.Bav{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0px 0px 8px 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.24);
+
+}
+
+.nav span {
+    background-color: red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+.content {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+
+
+.Editor {
+    flex-grow: 1;
+    background-color: #2e2e3e;
+    height: 98%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0 8px 8px 0;
+}
+
+
+.main{
+    display: flex;
+    justify-content: left;
+    height: 100%;
+}
+
+.fileSystem{
+    background-color: #1f2133;
+    min-width: 350px;
+    height: 95%;
+    border-right: 1px solid rgba(2, 2, 2, 0.199);
+    overflow-y: auto;
+}
+.fileSystem1{
+    background-color: #1f2133;
+    min-width: 35px;
+    height: 100%;
+    border-radius: 0px 0px 0px 20px;
+    border-right: 1px solid rgba(2, 2, 2, 0.199);
+    overflow-y: auto;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size:16px;
+    padding-top: 5px;
+}
+.fileSystem1 span:hover{
+    cursor: pointer;
+    background-color: rgba(105, 105, 105, 0.411);
+}
+.fileSystem1 span{
+    height: 25px;
+}
+.fileSystemNav{
+    font-size: 16px;
+    background-color: #2e2e3e;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 20px;
+    padding-right: 10px;
+    color: white;
+    height: 30px;
+}
+.fileSystemNav span{ 
+    padding-left: 2px;
+    padding-right: 2px
+}
+.fileSystemNav span:hover{
+    cursor: pointer;
+    background-color: rgba(105, 105, 105, 0.411);
+}
+
+.CreateFile input{
+    width: 90%;
+    background-color: transparent;
+    outline: none;
+    padding-left: 10px;
+}
+.CreateFile{
+    padding-left: 10px;
+    color: rgb(36, 36, 36);
+    background-color: #dbdbdb;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.CreateFile i{
+    cursor: pointer;
+}
+
+.CreateFolder input{
+    width: 90%;
+    background-color: transparent;
+    outline: none;
+    padding-left: 10px;
+}
+.CreateFolder{
+    padding-left: 10px;
+    color: rgb(36, 36, 36);
+    background-color: #dbdbdb;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.CreateFolder i{
+    cursor: pointer;
+}
+
+
+.code{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+/* teriminal */
+.term{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+.options{
+    background-color: #ececec;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    gap: 20px;
+}
+.options span{
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.fileName{
+    color: white;
+    font-weight: 300;
+    padding: 5px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+}
+
+.docname{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    font-weight: 700;
+    padding: 10px;
+}
+
+
+.openFilSystem{
+    backdrop-filter: blur(20px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.openFilSystem span{
+    backdrop-filter: blur(20px);
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0.26);
+    padding: 10px;
+    border-radius: 22px;
+    margin-left: 80px;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+}
+
+.timeCard{
+    /* background-color: white; */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrappercard{
+    background-color: white;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px;
+    height: 200px;
+    border-radius: 12px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    padding-left: 10px;
+    flex-direction: column;
+}
+.countDown{
+    display: flex;
+    align-items: baseline;
+    font-size: 50px;
+    font-weight: 600;
+}
+.countDown p{
+    font-size: 15px;
+    padding-left: 5px;
+}
+.wrappercard i{
+    color: green;
+}
+
+.wrapper button{
+    border : 1px solid black;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.TimeOver{
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    margin: 10px;
+    display: flex;
+    /* align-items: center; */
+    padding-left: 10px;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
+}
+.TimeOver p{
+    color: red;
+    font-size: 30px;
+}
+.TimeOver button{
+    min-width: 100px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.TimeOver button i{
+    color: red;
+}
