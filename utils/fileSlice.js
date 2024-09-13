@@ -5,8 +5,8 @@ const fileSlice = createSlice({
     selectedFile: null,
     fileContent: '',
     fileStatus:"Saved",
-    FileSystemVisibility:true,
-    socketPort:"3000"
+    FileSystemVisibility:false,
+    socketPort:undefined
   },
   reducers: {
     setSelectedFile: (state, action) => {

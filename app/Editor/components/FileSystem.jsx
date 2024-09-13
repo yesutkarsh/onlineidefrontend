@@ -206,17 +206,22 @@ export default function FileSystem() {
   };
 
   const fetchData = async () => {
-    if(socketAddress!=undefined){
-      console.log(socketAddress)
-      try{
-        let data = await fetch(`http://34.67.228.203:${socketAddress}/files`)
-        let json = await data.json()
-        setData(json)
-      }catch(err){
-        console.log(err)
+    if (socketAddress != undefined) {
+      try {
+        let data = await fetch(`/api/GetFiles`, {
+          headers: {
+            socketPort: socketAddress
+          }
+        });
+        const json = await data.json();
+        console.log(json)
+        setData(json); // Directly set the response
+      } catch (err) {
+        console.log(err);
       }
     }
   };
+  
 
 
   function ShowFileSystem(){
@@ -300,10 +305,11 @@ export default function FileSystem() {
           ></i>
         </div>
       )}
-
-      {data.map((files) => (
+{data[0]!==undefined? 
+      data.map((files) => (
         <HandleFileSystem key={files.path} {...files} />
-      ))}
+      ))
+    :""}
       <span className={style.docname}>JavaScript</span>
     </>
   );
