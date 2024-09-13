@@ -18,15 +18,7 @@ export default function CreateEnv() {
     setInstanceStatus(true);
     const randomNumber = Math.floor(Math.random() * 4001) + 1000;
 
-    fetch("http://34.67.228.203:4000/run", {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer your-token-here',
-        'apikey': 'utjve2234fnvke32of',
-        "port": randomNumber
-      }
-    })
+    fetch("/api/CreateEnv")
     .then(response => response.json())
     .then(json => {
       if (json) {

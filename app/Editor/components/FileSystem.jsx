@@ -16,7 +16,7 @@ export default function FileSystem() {
 
   let socket;
   if(socketAddress != undefined){
-    socket = io(`http://localhost:${socketAddress}`)
+    socket = io(`http://34.67.228.203:${socketAddress}`)
   }else{
     router.push("/createEnv")
   }
