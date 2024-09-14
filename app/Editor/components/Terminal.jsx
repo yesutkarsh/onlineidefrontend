@@ -3,26 +3,15 @@ import React, { useEffect, useRef } from 'react'
 import style from "../style.module.css"
 import { Terminal as XTerminal } from '@xterm/xterm';
 import "@xterm/xterm/css/xterm.css"
-import {io} from "socket.io-client"
 import { useSelector } from 'react-redux';
-
+import { socket } from '@/utils/connection';
 export default function Terminals() {
 
 
-   const socketAddress = useSelector((store)=>{
-     return store?.file?.socketPort;
-   })
-
-   let socket;
-   if(socketAddress != undefined){
-     socket = io(`http://34.67.228.203:${socketAddress}`)
-   }else{
-    return
-   }
+  
 
 
     const Displayterminal = useRef()
-
     let isRendered = false
     const term = new XTerminal()
     term.onData((data)=>{

@@ -7,9 +7,7 @@ import Terminals from "./components/Terminal";
 import FileSystem from "./components/FileSystem";
 import { useDispatch, useSelector } from "react-redux";
 import { chnageStatus, setFileContent, toggleFileSystem } from "@/utils/fileSlice";
-
-
-import {io} from "socket.io-client"
+import { socket } from "@/utils/connection";
 
 
 export default function EditorCard() {
@@ -18,12 +16,7 @@ export default function EditorCard() {
     return store?.file?.socketPort;
   })
 
-  let socket
-  if(socketAddress != undefined){
-    socket = io(`http://34.67.228.203:${socketAddress}`)
-  }else{
-    return
-  }
+ 
 
   const [saveBut, setSavButt] = useState("Save")
   const [TerminalVisibility, setTerminalVisibility] = useState(true)
@@ -72,10 +65,13 @@ export default function EditorCard() {
   const saveContent = ()=>{
     if(!fileName){
         alert("No File Selected")
+        return
     }
-    setSavButt("Saving...")
-    socket.emit('fileWrite',{path:fileName.path, content: code})
-    console.log(fileName.path)
+    else{
+      setSavButt("Saving...")
+      socket.emit('fileWrite',{path:fileName.path, content: code})
+      console.log(fileName.path)
+    }
 }
 socket.on('Saved',(data)=>{
   setSavButt("Document Saved")

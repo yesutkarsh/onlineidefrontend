@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import style from "../style.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedFile, toggleFileSystem } from "@/utils/fileSlice";
-import {io} from "socket.io-client"
 import { useRouter } from 'next/navigation';
+import { socket } from "@/utils/connection";
+
 
 export default function FileSystem() {
 
@@ -14,12 +15,7 @@ export default function FileSystem() {
     return store?.file?.socketPort;
   })
 
-  let socket;
-  if(socketAddress != undefined){
-    socket = io(`http://34.67.228.203:${socketAddress}`)
-  }else{
-    router.push("/createEnv")
-  }
+
 
 
   const [data, setData] = useState([]);
@@ -169,6 +165,14 @@ export default function FileSystem() {
     return (
       <div
         onClick={() => {
+          let name = files.path.split("/")
+          if(name[1] === "package.json"){
+            alert("Restricted File, Not allowed To Open")
+            return
+          }else if(name[1] === "package-lock.json"){
+            alert("Restricted File, Not allowed To Open")
+            return
+          }
           const path = "./" + files.path;
           let param = { type: "file", path: path };
           socket.emit("fileToView", path);
@@ -206,20 +210,14 @@ export default function FileSystem() {
   };
 
   const fetchData = async () => {
-    if (socketAddress != undefined) {
       try {
-        let data = await fetch(`/api/GetFiles`, {
-          headers: {
-            socketPort: socketAddress
-          }
-        });
+        let data = await fetch(`https://container-1058876736891.us-central1.run.app/files`);
         const json = await data.json();
         console.log(json)
         setData(json); // Directly set the response
       } catch (err) {
         console.log(err);
       }
-    }
   };
   
 
