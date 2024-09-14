@@ -27,19 +27,28 @@ export default function CreateEnv() {
           dispatch(setSocketPort(json.port));
           setInstanceStatus(false);
         } else {
-          setMsg("Error: Cannot create instance at the moment.");
+          setMsg("Because Our On Demand GCP Server is down we are redirection you shared default environment in 10 seconds...");
           setInstanceStatus(false);
+          setTimeout(()=>{
+            router.push('/Editor');
+          },4000)
         }
       } else {
       console.error(error);
-        setMsg("Error: Cannot create instance at the moment.");
-        setInstanceStatus(false);
+      setMsg("Because Our On Demand GCP Server is down we are redirection you shared default environment in 10 seconds...");
+      setInstanceStatus(false);
+      setTimeout(()=>{
+        router.push('/Editor');
+      },4000);
       }
     })
     .catch(error => {
       console.error(error);
-      setMsg("Error: Cannot create instance at the moment.");
-      setInstanceStatus(false);
+      setMsg("Because Our On Demand GCP Server is down we are redirection you shared default environment in 10 seconds...");
+          setInstanceStatus(false);
+          setTimeout(()=>{
+            router.push('/Editor');
+          },4000)
     });
   };
 
